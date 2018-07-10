@@ -1,8 +1,21 @@
 import React, { Component } from 'react';
+
+import {getFootballNerdPlayers} from '../footballRequests/footballNerdRequest';
 import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+
+  componentDidMount () {
+    getFootballNerdPlayers()
+      .then((players) => {
+        console.log(players);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+
   render () {
     return (
       <div className="App">
